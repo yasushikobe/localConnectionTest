@@ -9,16 +9,22 @@
         }
 
         function sendFlutterApp() {
-            // Flutterへデータ送信
-            sendToFlutter.postMessage("Post message from JavaScript!!!");
+            // Flutterへローカル通知文字列を送信
+            if (sendToFlutter) {
+                sendToFlutter.postMessage("Message for flutter local notification.");
+            } else {
+                alert("sendToFlutter is not defined.");
+            }
         }
 
-        function receiveFromFlutter(accessToken, idToken) {
-            // Flutterからデータ受信
+        function receiveFromFlutter(accessToken, idToken, refreshToken) {
+            // Flutterからセッション情報受信
             var accessTokenDiv = document.getElementById("accessToken");
             accessTokenDiv.textContent = accessToken;
             var idTokenDiv = document.getElementById("idToken");
             idTokenDiv.textContent = idToken;
+            var refreshTokenDiv = document.getElementById("refreshToken");
+            refreshTokenDiv.textContent = refreshToken;
         }
     </script>
 </head>
@@ -27,10 +33,8 @@
 <button onclick="sendFlutterApp()">Send Message</button>
 <h3>initial hash</h3>
 <div id="initialHash"></div>
-<br/>
 <h3>access token</h3>
 <div id="accessToken"></div>
-<br/>
 <h3>id token</h3>
 <div id="idToken"></div>
 </body>
