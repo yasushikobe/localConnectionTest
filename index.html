@@ -2,6 +2,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <style>
+        p{
+            white-space:nowrap;
+        }
+    </style>
     <script>
         function load() {
             var initialHashDiv = document.getElementById("initialHash");
@@ -27,13 +32,13 @@
     </script>
 </head>
 <body onload="load();">
-<h2>Local connection test tool</h2>
-<button onclick="sendFlutterApp()">Send Message</button>
-<h3>initial hash</h3>
-<div id="initialHash"></div>
-<h3>access token</h3>
-<div id="accessToken"></div>
-<h3>id token</h3>
-<div id="idToken"></div>
+    <h2>Local connection test tool</h2>
+    <button onclick="sendFlutterApp()">Send Message</button>
+    <h3>initial hash</h3>
+    <p id="initialHash"></p>
+    <h3>access token</h3>
+    <p id="accessToken"></p>
+    <h3>id token</h3>
+    <p id="idToken"></p>
 </body>
 </html>
