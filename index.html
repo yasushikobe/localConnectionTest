@@ -1,0 +1,21 @@
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <script>
+        function sendFlutterApp() {
+            // Flutterへデータ送信
+            sendToFlutter.postMessage("Post message from JavaScript!!!");
+        }
+
+        function receiveFromFlutter(accessToken, idToken) {
+            // Flutterからデータ受信
+            console.log("accessToken:"+accessToken);
+            console.log("idToken:"+idToken);
+        }
+    </script>
+</head>
+<body>
+<button onclick="sendFlutterApp()">Send Message</button>
+</body>
+</html>
