@@ -4,8 +4,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <script>
         function load() {
-            var accessTokenDiv = document.getElementById("accessToken");
-            accessTokenDiv.textContent = location.hash;
+            var initialHashDiv = document.getElementById("initialHash");
+            initialHashDiv.textContent = location.hash.replace("#","").replace("&","<br/>";
         }
 
         function sendFlutterApp() {
@@ -25,11 +25,13 @@
 <body onload="load();">
 <h2>Local connection test tool</h2>
 <button onclick="sendFlutterApp()">Send Message</button>
-<div>initial hash</div>
+<h3>initial hash</h3>
 <div id="initialHash"></div>
-<div>access token</div>
+<br/>
+<h3>access token</h3>
 <div id="accessToken"></div>
-<div>id token</div>
+<br/>
+<h3>id token</h3>
 <div id="idToken"></div>
 </body>
 </html>
