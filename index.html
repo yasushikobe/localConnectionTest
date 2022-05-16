@@ -3,6 +3,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <script>
+        function load() {
+            var accessTokenDiv = document.getElementById("accessToken");
+            accessTokenDiv.textContent = location.hash;
+        }
+
         function sendFlutterApp() {
             // Flutterへデータ送信
             sendToFlutter.postMessage("Post message from JavaScript!!!");
@@ -10,13 +15,21 @@
 
         function receiveFromFlutter(accessToken, idToken) {
             // Flutterからデータ受信
-            console.log("accessToken:"+accessToken);
-            console.log("idToken:"+idToken);
+            var accessTokenDiv = document.getElementById("accessToken");
+            accessTokenDiv.textContent = accessToken;
+            var idTokenDiv = document.getElementById("idToken");
+            idTokenDiv.textContent = idToken;
         }
     </script>
 </head>
-<body>
-    <h1>Localconnection test tool</h1>    
-    <button onclick="sendFlutterApp()">Send Message</button>
+<body onload="load();">
+<h2>Local connection test tool</h2>
+<button onclick="sendFlutterApp()">Send Message</button>
+<div>initial hash</div>
+<div id="initialHash"></div>
+<div>access token</div>
+<div id="accessToken"></div>
+<div>id token</div>
+<div id="idToken"></div>
 </body>
 </html>
