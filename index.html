@@ -36,6 +36,10 @@
             initialHashDiv.innerHTML = "accessToken=" + accessToken +
                 "<br/>idToken=" + idToken +
                 "<br/>refreshToken=" + refreshToken;
+            var accessTokenDiv = document.getElementById("accessToken");
+            accessTokenDiv.textContent = "";
+            var idTokenDiv = document.getElementById("idToken");
+            idTokenDiv.textContent = "";
         }
     </script>
 </head>
