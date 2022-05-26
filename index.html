@@ -10,7 +10,7 @@
     <script>
         function load() {
             var initialHashDiv = document.getElementById("initialHash");
-            initialHashDiv.innerHTML = location.hash.replace("#","").replaceAll("&", "<br/>");
+            initialHashDiv.innerHTML = location.hash.replace(/#/,"").replace(/&/g, "<br/>");
         }
 
         function sendFlutterApp() {
