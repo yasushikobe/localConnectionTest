@@ -14,9 +14,14 @@
         }
 
         function sendFlutterApp() {
+            var message = '{' + 
+                '"Title": "NEC Communication Service", ' + 
+                '"Body": "【緊急】田中 太郎さんからメッセージを受信しました", ' + 
+                '"Url": "https:\/\/webapp-dev.n-mcs.gateway.nghis-dev.com\/conversations\/nesuser06#3f0bb9b4-6e52-4c54-9f89-080b02787357?id=2021090118000000"' + 
+                '}';
             // Flutterへローカル通知文字列を送信
             if (sendToFlutter) {
-                sendToFlutter.postMessage("Message for flutter local notification.");
+                sendToFlutter.postMessage(message);
             } else {
                 alert("sendToFlutter is not defined.");
             }
