@@ -28,9 +28,9 @@
         function _readFile(path) {
             var message = '{' + 
                 '"Method": "readFile", ' +
-                '"Path": "' + path '" ' +
+                '"Path": "' + path + '" ' +
                 '}';
-            // Flutterへファイル選択要求
+            // FlutterへファイルREAD要求
             if (sendToFlutter) {
                 sendToFlutter.postMessage(message);
             } else {
