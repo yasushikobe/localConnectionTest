@@ -25,20 +25,7 @@
             }
         }
         
-        function _readFile(path) {
-            var message = '{' + 
-                '"Method": "readFile", ' +
-                '"Path": "' + path + '" ' +
-                '}';
-            // FlutterへファイルREAD要求
-            if (sendToFlutter) {
-                sendToFlutter.postMessage(message);
-            } else {
-                alert("sendToFlutter is not defined.");
-            }
-        }
-        
-        function _sendToFlutter() {
+        function _sendMessage() {
             var message = '{' + 
                 '"Method": "notify", '+
                 '"Title": "NEC Communication Service", ' + 
@@ -73,15 +60,6 @@
             idTokenDiv.textContent = "";
         }
         
-        function onSelectPickFiles(pickFilesJson) {
-            alert(pickFilesJson);
-            const pickFiles = JSON.parse(pickFilesJson);
-            for (const pickFile of pickFiles) {
-                _readFile(pickFile.path);
-            }
-            alert('SelectPickFiles is completed.');
-        }
-        
         function onCompleteReadFile(filename, base64) {
             alert(filename + '\n' + base64.length + '\n\n' + base64.slice(0, 40) + '...');
         }
@@ -94,7 +72,7 @@
 <body onload="load();">
 <h2>Local connection test tool</h2>
 <button onclick="_pickFiles()">Pick Files</button>
-<button onclick="_sendToFlutter()">Send Message</button>
+<button onclick="_sendMessage()">Send Message</button>
 <h3>initial hash</h3>
 <p id="initialHash"></p>
 <h3>access token</h3>
