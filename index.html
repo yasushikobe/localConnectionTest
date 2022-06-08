@@ -82,7 +82,7 @@
         }
         
         function onCompleteReadFile(filename, base64) {
-            alert(filename + '\n' + base64.slice(0, 40));
+            alert(filename + '\n' + base64.length + '\n\n' + base64.slice(0, 40) + '...');
         }
     </script>
 </head>
