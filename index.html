@@ -14,11 +14,7 @@
         }
 
         function _pickFiles() {
-            if (pickFiles) {
-                pickFiles.postMessage();
-            } else {
-                alert("pickFiles is not defined.");
-            }
+            pickFiles.postMessage();
         }
         
         function _sendToFlutter() {
