@@ -25,6 +25,19 @@
             }
         }
         
+        function _readFile(path) {
+            var message = '{' + 
+                '"Method": "readFile", ' +
+                '"Path": "' + path '" ' +
+                '}';
+            // Flutterへファイル選択要求
+            if (sendToFlutter) {
+                sendToFlutter.postMessage(message);
+            } else {
+                alert("sendToFlutter is not defined.");
+            }
+        }
+        
         function _sendToFlutter() {
             var message = '{' + 
                 '"Method": "notify", '+
@@ -60,12 +73,16 @@
             idTokenDiv.textContent = "";
         }
         
-        function onSelectPickFiles(pickFiles) {
-            alert(pickFiles);
+        function onSelectPickFiles(pickFilesJson) {
+            alert(pickFilesJson);
+            const pickFiles = JSON.parse(pickFilesJson);
+            for (const pickFile of pickFiles) {
+                
+            }
         }
         
         function onCompleteReadFile(filename, base64) {
-            alert(base64.slice(0, 40));
+            alert(filename + '\n' + base64.slice(0, 40));
         }
     </script>
 </head>
