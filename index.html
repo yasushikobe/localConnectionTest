@@ -61,19 +61,19 @@
         }
         
         function onBeginPickFiles() {
-            alert("onBeginPickFiles");
+            console.log("onBeginPickFiles");
         }
         
         function onCompleteReadFile(filename, base64) {
-            alert(filename + '\n' + base64.length + '\n\n' + base64.slice(0, 40) + '...');
+            console.log(filename + '\n' + base64.length + '\n\n' + base64.slice(0, 40) + '...');
         }
         
         function onFinishPickFiles() {
-            alert("onFinishPickFiles");
+            console.log("onFinishPickFiles");
         }
         
         function onCancelPickFiles() {
-            alert("onCancelPickFiles");
+            console.log("onCancelPickFiles");
         }
     </script>
 </head>
