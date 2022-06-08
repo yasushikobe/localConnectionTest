@@ -77,7 +77,7 @@
             alert(pickFilesJson);
             const pickFiles = JSON.parse(pickFilesJson);
             for (const pickFile of pickFiles) {
-                
+                _readFile(pickFile.path);
             }
         }
         
