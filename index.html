@@ -63,6 +63,10 @@
         function onSelectPickFiles(pickFiles) {
             alert(pickFiles);
         }
+        
+        function onCompleteReadFile(filename, base64) {
+            alert(base64.slice(0, 40));
+        }
     </script>
 </head>
 <body onload="load();">
