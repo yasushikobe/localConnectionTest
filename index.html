@@ -13,7 +13,15 @@
             initialHashDiv.innerHTML = location.hash.replace(/#/,"").replace(/&/g, "<br/>");
         }
 
-        function sendFlutterApp() {
+        function _pickFiles() {
+            if (pickFiles) {
+                pickFiles.postMessage();
+            } else {
+                alert("pickFiles is not defined.");
+            }
+        }
+        
+        function _sendToFlutter() {
             var message = '{' + 
                 '"Title": "NEC Communication Service", ' + 
                 '"Body": "【緊急】田中 太郎さんからメッセージを受信しました", ' + 
@@ -50,7 +58,8 @@
 </head>
 <body onload="load();">
 <h2>Local connection test tool</h2>
-<button onclick="sendFlutterApp()">Send Message</button>
+<button onclick="_pickFiles()">Pick Files</button>
+<button onclick="_sendToFlutter()">Send Message</button>
 <h3>initial hash</h3>
 <p id="initialHash"></p>
 <h3>access token</h3>
