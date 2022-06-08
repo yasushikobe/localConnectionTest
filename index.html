@@ -61,31 +61,37 @@
         }
         
         function onBeginPickFiles() {
-            console.log("onBeginPickFiles");
+            var pickFilesDiv = document.getElementById("pickFiles");
+            pickFilesDiv.innerHTML = "onBeginPickFiles<br/>";
         }
         
         function onCompleteReadFile(filename, base64) {
-            console.log(filename + '\n' + base64.length + '\n\n' + base64.slice(0, 40) + '...');
+            var pickFilesDiv = document.getElementById("pickFiles");
+            pickFilesDiv.innerHTML += filename + ' (' + base64.length + ') ' + base64.slice(0, 40) + '...<br/>';
         }
         
         function onFinishPickFiles() {
-            console.log("onFinishPickFiles");
+            var pickFilesDiv = document.getElementById("pickFiles");
+            pickFilesDiv.innerHTML += "onFinishPickFiles<br/>";
         }
         
         function onCancelPickFiles() {
-            console.log("onCancelPickFiles");
+            var pickFilesDiv = document.getElementById("pickFiles");
+            pickFilesDiv.innerHTML = "onCancelPickFiles<br/>";
         }
     </script>
 </head>
 <body onload="load();">
-<h2>Local connection test tool</h2>
-<button onclick="_pickFiles()">Pick Files</button>
-<button onclick="_sendMessage()">Send Message</button>
-<h3>initial hash</h3>
-<p id="initialHash"></p>
-<h3>access token</h3>
-<p id="accessToken"></p>
-<h3>id token</h3>
-<p id="idToken"></p>
+    <h2>Local connection test tool</h2>
+    <button onclick="_pickFiles()">Pick Files</button>
+    <button onclick="_sendMessage()">Send Message</button>
+    <h3>initial hash</h3>
+    <p id="initialHash"></p>
+    <h3>access token</h3>
+    <p id="accessToken"></p>
+    <h3>id token</h3>
+    <p id="idToken"></p>
+    <h3>Pick Files</h3>
+    <p id="pickFiles"></p>    
 </body>
 </html>
