@@ -91,6 +91,11 @@
             ws.onmessage = (event) => {
                 let messages = document.getElementById("messages");
                 messages.innerHTML = event.data;
+                if (sendToFlutter) {
+                    sendToFlutter.postMessage(message);
+                } else {
+                    alert("sendToFlutter is not defined.");
+                }                
             };
         })();
     </script>
