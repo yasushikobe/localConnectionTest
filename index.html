@@ -83,13 +83,13 @@
         }
         
         (async function () {
-            let messages = document.getElementById("messages");
             let res = await fetch(`https://medilinksws.azurewebsites.net/api/negotiate`);
             let url = await res.json();
             let ws = new WebSocket(url.url);
             ws.onopen = () => console.log("connected");
 
             ws.onmessage = (event) => {
+                let messages = document.getElementById("messages");
                 messages.innerHTML = event.data;
             };
         })();
