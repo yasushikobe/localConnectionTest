@@ -92,7 +92,7 @@
                 let messages = document.getElementById("messages");
                 messages.innerHTML = event.data;
                 if (sendToFlutter) {
-                    sendToFlutter.postMessage(message);
+                    sendToFlutter.postMessage(event.data);
                 } else {
                     alert("sendToFlutter is not defined.");
                 }                
