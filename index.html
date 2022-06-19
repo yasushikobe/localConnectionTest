@@ -82,7 +82,8 @@
             pickFilesDiv.innerHTML = "onCancelPickFiles<br/>";
         }
         
-        (async function () {
+        function _startNotify() {
+          (async function () {
             let res = await fetch(`https://medilinksws.azurewebsites.net/api/negotiate`);
             let url = await res.json();
             let ws = new WebSocket(url.url);
@@ -97,13 +98,15 @@
                     alert("sendToFlutter is not defined.");
                 }                
             };
-        })();
+          })();
+        }
     </script>
 </head>
 <body onload="load();">
     <h2>Local connection test tool</h2>
     <button onclick="_pickFiles()">Pick Files</button>
     <button onclick="_sendMessage()">Send Message</button>
+    <button onclick="_startNotify()">Start Notify</button>
     <h3>initial hash</h3>
     <p id="initialHash"></p>
     <h3>access token</h3>
