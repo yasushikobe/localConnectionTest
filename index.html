@@ -83,6 +83,7 @@
         }
         
         function _startNotify() {
+          document.getElementById("notifyButton").disabled = true;            
           (async function () {
             let res = await fetch(`https://medilinksws.azurewebsites.net/api/negotiate`);
             let url = await res.json();
@@ -106,7 +107,7 @@
     <h2>Local connection test tool</h2>
     <button onclick="_pickFiles()">Pick Files</button>
     <button onclick="_sendMessage()">Send Message</button>
-    <button onclick="_startNotify()">Start Notify</button>
+    <button id="notifyButton" onclick="_startNotify()">Start Notify</button>
     <h3>initial hash</h3>
     <p id="initialHash"></p>
     <h3>access token</h3>
