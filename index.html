@@ -89,7 +89,18 @@
             let url = await res.json();
             let ws = new WebSocket(url.url);
             ws.onopen = () => console.log("connected");
-
+            ws.onclose = () => {
+                console.log("websocket closed.");
+                if (sendToFlutter) {
+                    var message = '{' + 
+                        '"Method": "notify", '+
+                        '"Title": "NEC Communication Service", ' + 
+                        '"Body": "websocket is closed.", ' + 
+                        '"Url": "https:\/\/webapp-dev.n-mcs.gateway.nghis-dev.com\/conversations\/nesuser06#3f0bb9b4-6e52-4c54-9f89-080b02787357?id=2021090118000000"' + 
+                        '}';
+                    sendToFlutter.postMessage();
+                }
+            };
             ws.onmessage = (event) => {
                 let messages = document.getElementById("messages");
                 messages.innerHTML = event.data;
